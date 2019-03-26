@@ -89,7 +89,7 @@ Utilisant le script [`manual-decryption.py`](https://github.com/arubinst/HEIGVD-
 Vous devrez donc créer votre message, calculer le contrôle d’intégrité (ICV), et les chiffrer (voir slides du cours pour les détails).
 
 
-###Quelques éléments à considérer :
+### Quelques éléments à considérer :
 
 - Vous pouvez utiliser la même trame fournie comme « template » pour votre trame forgée (conseillé). Il faudra mettre à jour le champ de données qui transporte le message (`wepdata`) et le contrôle d’intégrite (`icv`).
 - Le champ `wepdata` accepte des données en format text.
@@ -102,7 +102,7 @@ Vous devrez donc créer votre message, calculer le contrôle d’intégrité (IC
 
 Dans cette partie, vous allez enrichir votre script développé dans la partie précédente pour chiffrer 3 fragments.
 
-###Quelques éléments à considérer :
+### Quelques éléments à considérer :
 
 - Chaque fragment est numéroté. La première trame d’une suite de fragments a toujours le numéro de fragment à 0. Une trame entière (sans fragmentation) comporte aussi le numéro de fragment égal à 0
 - Pour incrémenter le compteur de fragments, vous pouvez utiliser le champ « SC » de la trame. Par exemple : `trame.SC += 1`
@@ -125,7 +125,7 @@ Le but c’est de réussir une authentification auprès de l’AP sans connaîtr
 - Ensuite, vous devez développer un script capable d’utiliser votre capture pour réaliser une authentification **sans utiliser la clé WEP**.
 
 
-###Quelques éléments à considérer :
+### Quelques éléments à considérer :
 
 - La plupart des problèmes proviennent souvent du formatage de l’ICV (endianness, format, etc.). C’est donc une voie à explorer si vous n’arrivez pas à communiquer correctement avec l’AP (voir les scripts de base, chercher sur Internet, etc.)
 - Pour le challenge « authentification », vous devez « entamer une conversation » avec l’AP. Scapy fournit une commande capable d’envoyer un seul paquet, en attendre la réponse et continuer l’exécution du script
