@@ -71,11 +71,11 @@ sudo make install
 
 ### 1. Déchiffrement manuel de WEP
 
-Dans cette partie, vous allez récupérer le script Python `manual-decryption.py`. Il vous faudra également le fichier de capture `arp.cap` contenant un message arp chiffré avec WEP et la librairie `rc4.py` pour générer les keystreams indispensables pour chiffrer/déchiffrer WEP. Tous les fichiers doivent être copiés dans le même répertoire local sur vos machines.
+Dans cette partie, vous allez récupérer le script Python [`manual-decryption.py`](https://github.com/arubinst/HEIGVD-SWI-Labo2-WEP/blob/master/files/). Il vous faudra également le fichier de capture [`arp.cap`](https://github.com/arubinst/HEIGVD-SWI-Labo2-WEP/blob/master/files/) contenant un message arp chiffré avec WEP et la librairie [`rc4.py`](https://github.com/arubinst/HEIGVD-SWI-Labo2-WEP/blob/master/files/) pour générer les keystreams indispensables pour chiffrer/déchiffrer WEP. Tous les fichiers doivent être copiés dans le même répertoire local sur vos machines.
 
-- Ouvrir le fichier de capture `arp.cap` avec Wireshark
+- Ouvrir le fichier de capture [`arp.cap`](https://github.com/arubinst/HEIGVD-SWI-Labo2-WEP/blob/master/files/) avec Wireshark
    
-- Utiliser Wireshark pour déchiffrer la capture. Pour cela, il faut configurer dans Wireshark la clé de chiffrement/déchiffrement WEP (Dans Wireshark : Preferences&rarr;Protocols&rarr;IEEE 802.11&rarr;Decryption Keys). Il faut également activer le déchiffrement dans la fenêtre IEEE 802.11 (« Enable decryption »). Vous trouverez la clé dans le script Python `manual-decryption.py`.
+- Utiliser Wireshark pour déchiffrer la capture. Pour cela, il faut configurer dans Wireshark la clé de chiffrement/déchiffrement WEP (Dans Wireshark : Preferences&rarr;Protocols&rarr;IEEE 802.11&rarr;Decryption Keys). Il faut également activer le déchiffrement dans la fenêtre IEEE 802.11 (« Enable decryption »). Vous trouverez la clé dans le script Python [`manual-decryption.py`](https://github.com/arubinst/HEIGVD-SWI-Labo2-WEP/blob/master/files/).
    
 - Exécuter le script avec `python manual-decryption.py`
    
@@ -85,7 +85,7 @@ Dans cette partie, vous allez récupérer le script Python `manual-decryption.py
 
 ### 2. Chiffrement manuel de WEP
 
-Utilisant le script `manual-decryption.py` comme guide, créer un nouveau script `manual-encryption.py` capable de chiffrer un message, l’enregistrer dans un fichier pcap et l’envoyer.
+Utilisant le script [`manual-decryption.py`](https://github.com/arubinst/HEIGVD-SWI-Labo2-WEP/blob/master/files/) comme guide, créer un nouveau script `manual-encryption.py` capable de chiffrer un message, l’enregistrer dans un fichier pcap et l’envoyer.
 Vous devrez donc créer votre message, calculer le contrôle d’intégrité (ICV), et les chiffrer (voir slides du cours pour les détails).
 
 
@@ -121,13 +121,13 @@ Cet exercice nécessite l’utilisation d’un AP WEP configuré en mode d’aut
 
 Le but c’est de réussir une authentification auprès de l’AP sans connaître la clé WEP. Vous devrez :
 
-- Configurer l’AP en WEP avec une clé connue, configurer l’authentification clé partagée et capturer un processus d’authentification et l’enregistrer dans un fichier .cap (voir fichier exemple `exercice_4.cap`.
+- Configurer l’AP en WEP avec une clé connue, configurer l’authentification clé partagée et capturer un processus d’authentification et l’enregistrer dans un fichier .cap (voir fichier exemple [`exercice_4.cap`](https://github.com/arubinst/HEIGVD-SWI-Labo2-WEP/blob/master/files/).
 - Ensuite, vous devez développer un script capable d’utiliser votre capture pour réaliser une authentification **sans utiliser la clé WEP**.
 
 
 ###Quelques éléments à considérer :
 
-- La plupart des problèmes provient souvent du formatage de l’ICV (endianness, format, etc.). C’est donc une voie à explorer si vous n’arrivez pas à communiquer correctement avec l’AP (voir les scripts de base, chercher sur Internet, etc.)
+- La plupart des problèmes proviennent souvent du formatage de l’ICV (endianness, format, etc.). C’est donc une voie à explorer si vous n’arrivez pas à communiquer correctement avec l’AP (voir les scripts de base, chercher sur Internet, etc.)
 - Pour le challenge « authentification », vous devez « entamer une conversation » avec l’AP. Scapy fournit une commande capable d’envoyer un seul paquet, en attendre la réponse et continuer l’exécution du script
 - Attention à la taille du challenge et de la réponse chiffrée… !!!
 
